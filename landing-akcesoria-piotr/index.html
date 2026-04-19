@@ -174,43 +174,55 @@
 </section>
 
 <!-- =============================================== FORMULARZ LEAD =============================================== -->
+<!-- =============================================== FORMULARZ LEAD =============================================== -->
 <section id="signup" class="py-16 bg-indigo-600 text-white">
     <div class="container mx-auto px-4 max-w-2xl text-center">
-        <h2 class="text-3xl font-bold mb-6">Poproś o ofertę indywidualną!</h2>
-        <p class="mb-8">Podaj swój e‑mail – skontaktujemy się najszybciej jak to możliwe.</p>
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4">Poproś o ofertę indywidualną!</h2>
+        <p class="mb-8 text-sm sm:text-base">Podaj swój e‑mail – skontaktujemy się najszybciej jak to możliwe.</p>
 
         <form action="https://formspree.io/f/xbdqyqgp"
               method="POST"
-              class="grid gap-4 sm:grid-cols-2"
+              class="grid gap-4 grid-cols-1 sm:grid-cols-2"
               autocomplete="on">
 
-            <input type="text" name="name" placeholder="Imię i nazwisko" required
-                   class="p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+            <input type="text" 
+                   name="name" 
+                   placeholder="Imię i nazwisko" 
+                   required
+                   class="w-full p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300">
 
-            <input type="email" name="_replyto" placeholder="E‑mail" required
-                   class="p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+            <input type="email" 
+                   name="_replyto" 
+                   placeholder="E‑mail" 
+                   required
+                   class="w-full p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300">
 
-            <input type="tel" name="phone" placeholder="Telefon (opcjonalnie)"
-                   class="p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+            <input type="tel" 
+                   name="phone" 
+                   placeholder="Telefon (opcjonalnie)"
+                   class="w-full p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 sm:col-span-2">
 
-            <textarea name="message" rows="3" placeholder="Opisz, czego potrzebujesz (np. kolor tkaniny, ilość)…"
-                      class="p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 sm:col-span-2"></textarea>
+            <textarea name="message" 
+                      rows="3" 
+                      placeholder="Opisz, czego potrzebujesz (np. kolor tkaniny, ilość)…"
+                      class="w-full p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 sm:col-span-2"></textarea>
 
             <input type="text" name="_gotcha" style="display:none">
             <input type="hidden" name="_next" value="https://akcesoria-piotr.pl/thank-you.html">
             <input type="hidden" name="_subject" value="Nowy lead – Leżaki Plażowe Premium">
 
             <button type="submit"
-                    class="col-span-2 bg-white text-indigo-600 font-semibold py-3 rounded hover:bg-gray-100 transition">
-                Poproś o kontakt w sprawie oferty indywidualnej.
+                    class="w-full sm:col-span-2 bg-white text-indigo-600 font-semibold py-3 px-4 rounded hover:bg-gray-100 transition text-sm sm:text-base">
+                Poproś o kontakt
             </button>
         </form>
 
-        <p class="text-sm opacity-80 mt-4">
+        <p class="text-xs sm:text-sm opacity-80 mt-4">
             *Skontaktujemy się z Tobą jak najszybciej!
         </p>
     </div>
 </section>
+
 
 <!-- ==================== FAQ ==================== -->
 <section class="py-16 bg-gray-50">
