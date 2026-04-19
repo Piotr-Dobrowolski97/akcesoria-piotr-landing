@@ -9,7 +9,7 @@
     <meta name="description"
           content="Lekkie, składane w 5 sekund leżaki aluminiowe 2‑pozycyjne, idealne na plażę, ogród oraz jako wyposażenie hoteli.">
 
-    <!-- Open Graph – wyświetla się przy udostępnianiu -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Leżaki Plażowe Premium – Akcesoria‑Piotr">
     <meta property="og:description"
           content="Aluminiowy leżak 2‑pozycyjny, składany w 5 s, wodoszczelny – idealny na plażę i hotele.">
@@ -24,8 +24,20 @@
           content="Lekki, składany w 5 s, wodoszczelny leżak aluminiowy – idealny na plażę i hotele.">
     <meta name="twitter:image" content="https://akcesoria-piotr.pl/assets/hero.webp">
 
-    <!-- ==================== TAILWIND CDN ==================== -->
+    <!-- ==================== TAILWIND CDN + KONFIGURACJA ==================== -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#004e92',
+              secondary: '#00c6ff',
+            }
+          }
+        }
+      }
+    </script>
 
     <!-- ==================== JSON‑LD – FAQ ==================== -->
     <script type="application/ld+json">
@@ -38,7 +50,7 @@
                 "name":"Czy leżak jest lekki?",
                 "acceptedAnswer":{
                     "@type":"Answer",
-                    "text":"Tak – model Uniwersalny waży 2,8 kg, a model Hotelowy 3,3 kg, co ułatwia transport i przechowywanie."
+                    "text":"Tak – model Uniwersalny waży 2,8 kg, a model Hotelowy 3,3 kg, co ułatwia transport i przechowywanie."
                 }
             },
             {
@@ -46,7 +58,7 @@
                 "name":"Czy leżaki nadają się do hoteli?",
                 "acceptedAnswer":{
                     "@type":"Answer",
-                    "text":"Model Hotelowy ma udźwig 150 kg i tkaninę PVC odporną na promieniowanie UV – został zaprojektowany z myślą o obiektach komercyjnych."
+                    "text":"Model Hotelowy ma udźwig 150 kg i tkaninę PVC odporną na promieniowanie UV – został zaprojektowany z myślą o obiektach komercyjnych."
                 }
             },
             {
@@ -62,14 +74,14 @@
     </script>
 </head>
 
-<body class="font-sans text-gray-800 antialiased">
+<body class="font-sans text-gray-800 antialiased overflow-x-hidden">
 
 <!-- ====================================================== HERO ====================================================== -->
 <header class="relative bg-gray-900 text-white">
     <picture>
         <source srcset="/assets/hero.webp" type="image/webp">
         <img src="/assets/hero.webp"
-             alt="Leżaki Plażowe Premium – dwa modele (srebrny i granatowy PVC) na plaży przy wschodzie słońca"
+             alt="Leżaki Plażowe Premium – dwa modele na plaży przy wschodzie słońca"
              width="1920" height="1080"
              class="w-full h-auto object-cover"
              loading="eager">
@@ -77,9 +89,9 @@
 
     <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-700 opacity-70"></div>
 
-    <div class="absolute inset-0 flex flex-col items-start justify-center max-w-4xl mx-auto px-6 lg:px-12">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Leżaki Plażowe Premium</h1>
-        <p class="text-xl md:text-2xl max-w-lg mb-6">
+    <div class="absolute inset-0 flex flex-col items-start justify-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-12">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Leżaki Plażowe Premium</h1>
+        <p class="text-lg sm:text-xl md:text-2xl max-w-lg mb-6">
             Lekki, składany w 5 s, wodoszczelny – idealny na plażę, ogród i hotele.
         </p>
         <a href="#signup"
@@ -90,38 +102,29 @@
 </header>
 
 <!-- ================================================== MODELE ================================================== -->
-<!-- ====================== MODELE (dwóch kolumn) ====================== -->
 <section class="py-16 bg-gray-50">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">Nasze modele</h2>
 
-    <!-- ------- GRID RESPONSYWNY ------- -->
     <div class="grid gap-12 md:grid-cols-2">
 
-      <!-- ==================== MODEL 1 – UNIWER
+      <!-- MODEL 1 -->
+      <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+        <div class="h-[1100px] bg-gray-100 flex items-center justify-center overflow-hidden">
+          <img src="assets/model1.webp"
+               alt="Leżak Uniwersalny"
+               class="max-w-full max-h-full object-contain p-4">
+        </div>
 
-SALNY ==================== -->
-  <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-  <!-- Kontener o SZTYWNEJ wysokości -->
-  <div class="h-[1100px] bg-gray-100 flex items-center justify-center overflow-hidden">
-    <img src="assets/model1.webp"
-         alt="Leżak Uniwersalny"
-         class="max-w-full max-h-full object-contain p-4">
-  </div>
-
-        <!--   OPIS -->
         <div class="p-6 flex flex-col flex-1">
           <h3 class="text-2xl font-semibold mb-3 text-primary">Model Uniwersalny</h3>
-
           <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
-            <li>Aluminiumowy stelaż, waga <strong>2,8 kg</strong>, udźwig <strong>120 kg</strong></li>
+            <li>Aluminiumowy stelaż, waga <strong>2,8 kg</strong>, udźwig <strong>120 kg</strong></li>
             <li>Szlifowane podłokietniki z bukowego drewna, zabezpieczone lakierem</li>
             <li>Pikowana tkanina w różnych wzorach – elegancki design</li>
             <li>Antypoślizgowe stopki, idealny na plażę, ogród, camping, taras, działkę, balkon</li>
           </ul>
-
           <p class="text-sm text-gray-600 mb-4"><strong>Na zamówienie:</strong> wybierz kolor tkaniny, wzór lub dodatkowe akcesoria.</p>
-
           <a href="#signup"
              class="mt-auto inline-block bg-primary text-white font-medium py-2 px-4 rounded hover:bg-primary/80 transition">
             Zamów teraz
@@ -129,27 +132,23 @@ SALNY ==================== -->
         </div>
       </article>
 
-      <!-- ==================== MODEL 2 – HOTELOWY ==================== -->
-  <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-  <!-- Kontener o SZTYWNEJ wysokości (taka sama jak wyżej) -->
-  <div class="h-[1100px] bg-gray-100 flex items-center justify-center overflow-hidden">
-    <img src="assets/model2.webp"
-         alt="Leżak Hotelowy"
-         class="max-w-full max-h-full object-contain p-4">
+      <!-- MODEL 2 -->
+      <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+        <div class="h-[1100px] bg-gray-100 flex items-center justify-center overflow-hidden">
+          <img src="assets/model2.webp"
+               alt="Leżak Hotelowy"
+               class="max-w-full max-h-full object-contain p-4">
         </div>
 
         <div class="p-6 flex flex-col flex-1">
           <h3 class="text-2xl font-semibold mb-3 text-primary">Model Hotelowy</h3>
-
           <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
-            <li>Aluminiumowy stelaż, waga <strong>3,3 kg</strong>, udźwig <strong>150 kg</strong></li>
+            <li>Aluminiumowy stelaż, waga <strong>3,3 kg</strong>, udźwig <strong>150 kg</strong></li>
             <li>Szlifowane podłokietniki z bukowego drewna, lakierowane</li>
             <li>Tkanina siatka PVC, odporna na UV i warunki atmosferyczne – dostępna w trzech kolorach</li>
             <li>Łatwa w czyszczeniu, antypoślizgowe stopki, idealna dla hoteli i obiektów komercyjnych</li>
           </ul>
-
           <p class="text-sm text-gray-600 mb-4"><strong>Na zamówienie:</strong> możliwość wyboru koloru a także dodatkowego graweru na podłokietnikach.</p>
-
           <a href="#signup"
              class="mt-auto inline-block bg-primary text-white font-medium py-2 px-4 rounded hover:bg-primary/80 transition">
             Zamów teraz
@@ -157,14 +156,8 @@ SALNY ==================== -->
         </div>
       </article>
 
-    </div> <!-- koniec grid -->
-  </div>
-</section>
-
-
-
-        </div>
     </div>
+  </div>
 </section>
 
 <!-- ==================================================== GALERIA ==================================================== -->
@@ -180,7 +173,7 @@ SALNY ==================== -->
     </div>
 </section>
 
-<!-- =============================================== FORMULARZ LEAD (Formspree) =============================================== -->
+<!-- =============================================== FORMULARZ LEAD =============================================== -->
 <section id="signup" class="py-16 bg-indigo-600 text-white">
     <div class="container mx-auto px-4 max-w-2xl text-center">
         <h2 class="text-3xl font-bold mb-6">Poproś o ofertę indywidualną!</h2>
@@ -203,7 +196,6 @@ SALNY ==================== -->
             <textarea name="message" rows="3" placeholder="Opisz, czego potrzebujesz (np. kolor tkaniny, ilość)…"
                       class="p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 sm:col-span-2"></textarea>
 
-            <!-- ukryte pola bezpieczeństwa -->
             <input type="text" name="_gotcha" style="display:none">
             <input type="hidden" name="_next" value="https://akcesoria-piotr.pl/thank-you.html">
             <input type="hidden" name="_subject" value="Nowy lead – Leżaki Plażowe Premium">
@@ -220,14 +212,12 @@ SALNY ==================== -->
     </div>
 </section>
 
-    <!-- ==================== FAQ (widoczna sekcja) ==================== -->
+<!-- ==================== FAQ ==================== -->
 <section class="py-16 bg-gray-50">
   <div class="container mx-auto px-4 max-w-3xl">
     <h2 class="text-3xl font-bold text-center mb-12">Najczęściej zadawane pytania</h2>
 
     <div class="space-y-4">
-
-      <!-- Pytanie 1 -->
       <details class="bg-white rounded-xl p-6 shadow-md group">
         <summary class="font-semibold text-lg text-primary cursor-pointer flex justify-between items-center">
           Czy leżak jest lekki?
@@ -238,7 +228,6 @@ SALNY ==================== -->
         </p>
       </details>
 
-      <!-- Pytanie 2 -->
       <details class="bg-white rounded-xl p-6 shadow-md group">
         <summary class="font-semibold text-lg text-primary cursor-pointer flex justify-between items-center">
           Czy leżaki nadają się do hoteli?
@@ -249,7 +238,6 @@ SALNY ==================== -->
         </p>
       </details>
 
-      <!-- Pytanie 3 -->
       <details class="bg-white rounded-xl p-6 shadow-md group">
         <summary class="font-semibold text-lg text-primary cursor-pointer flex justify-between items-center">
           Jak dbać o leżak?
@@ -259,32 +247,22 @@ SALNY ==================== -->
           Wystarczy przemywać letnią wodą i delikatnie wycierać suchą ściereczką. Model z tkaniną PVC nie wymaga specjalnych środków.
         </p>
       </details>
-
     </div>
   </div>
 </section>
 
 <!-- ==================== STOPKA ==================== -->
 <footer class="bg-gray-900 text-gray-300 py-8">
-...
-
-
-<!-- ==================================================== STOPKA ==================================================== -->
-<footer class="bg-gray-900 text-gray-300 py-8">
     <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-
         <div class="mb-4 md:mb-0">
             <p class="font-semibold text-white">Akcesoria‑Piotr</p>
             <p>ul. Zagórska 53, 42-125 Biała</p>
-            <p>kontakt@piotr.info | +48 784-995-708</p>
+            <p>kontakt@piotr.info | +48 784-995-708</p>
         </div>
-
         <div class="flex space-x-4">
-            <!-- Ikonki – podmień jeśli masz własne profile -->
-            
+            <!-- Ikonki social media -->
         </div>
     </div>
-
     <div class="text-center mt-4 text-sm opacity-70">
         © 2026 Akcesoria‑Piotr. Wszelkie prawa zastrzeżone.
     </div>
