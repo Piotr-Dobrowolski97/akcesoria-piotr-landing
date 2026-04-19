@@ -3,282 +3,612 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- ==================== META (SEO) ==================== -->
-    <title>Akcesoria‑Piotr – Leżaki Plażowe Premium</title>
-    <meta name="description"
-          content="Lekkie, składane w 5 sekund leżaki aluminiowe 2‑pozycyjne, idealne na plażę, ogród oraz jako wyposażenie hoteli.">
+    <!-- ==================== SEO & META TAGS ==================== -->
+    <title>Akcesoria-Piotr | Leżaki, Sanki i Wyposażenie Garażu</title>
+    <meta name="description" content="Sklep wielosezonowy: aluminiowe leżaki plażowe, solidne sanki dla dzieci oraz stojaki na opony i wieszaki. Wysoka jakość i trwałość.">
+    <meta name="keywords" content="leżaki plażowe, sanki dziecięce, stojaki na opony, wieszaki, akcesoria ogrodowe, wyposażenie garażu, akcesoria-piotr">
+    <meta name="author" content="Akcesoria-Piotr">
+    <meta name="robots" content="index, follow">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Leżaki Plażowe Premium – Akcesoria‑Piotr">
-    <meta property="og:description"
-          content="Aluminiowy leżak 2‑pozycyjny, składany w 5 s, wodoszczelny – idealny na plażę i hotele.">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:title" content="Akcesoria-Piotr – Wyposażenie przez cały rok">
+    <meta property="og:description" content="Od relaksu latem po zabawę zimą. Sprawdź nasze leżaki, sanki i systemy przechowywania.">
     <meta property="og:image" content="https://akcesoria-piotr.pl/assets/hero.webp">
     <meta property="og:url" content="https://akcesoria-piotr.pl">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Leżaki Plażowe Premium – Akcesoria‑Piotr">
-    <meta name="twitter:description"
-          content="Lekki, składany w 5 s, wodoszczelny leżak aluminiowy – idealny na plażę i hotele.">
+    <meta name="twitter:title" content="Akcesoria-Piotr – Wyposażenie przez cały rok">
     <meta name="twitter:image" content="https://akcesoria-piotr.pl/assets/hero.webp">
 
-    <!-- ==================== TAILWIND CDN + KONFIGURACJA ==================== -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: '#004e92',
-              secondary: '#00c6ff',
-            }
-          }
-        }
-      }
-    </script>
+    <!-- ==================== TAILWIND CSS ==================== -->
+    <link href="./assets/style.css" rel="stylesheet">
 
-    <!-- ==================== JSON‑LD – FAQ ==================== -->
+    <!-- ==================== JSON‑LD (SEO LOKALNE) ==================== -->
     <script type="application/ld+json">
     {
         "@context":"https://schema.org",
-        "@type":"FAQPage",
-        "mainEntity":[
-            {
-                "@type":"Question",
-                "name":"Czy leżak jest lekki?",
-                "acceptedAnswer":{
-                    "@type":"Answer",
-                    "text":"Tak – model Uniwersalny waży 2,8 kg, a model Hotelowy 3,3 kg, co ułatwia transport i przechowywanie."
-                }
-            },
-            {
-                "@type":"Question",
-                "name":"Czy leżaki nadają się do hoteli?",
-                "acceptedAnswer":{
-                    "@type":"Answer",
-                    "text":"Model Hotelowy ma udźwig 150 kg i tkaninę PVC odporną na promieniowanie UV – został zaprojektowany z myślą o obiektach komercyjnych."
-                }
-            },
-            {
-                "@type":"Question",
-                "name":"Jak dbać o leżak?",
-                "acceptedAnswer":{
-                    "@type":"Answer",
-                    "text":"Wystarczy przemywać letnią wodą i delikatnie wycierać suchą ściereczką. Model z tkaniną PVC nie wymaga specjalnych środków."
-                }
-            }
-        ]
+        "@type":"LocalBusiness",
+        "name": "Akcesoria-Piotr",
+        "image": "https://akcesoria-piotr.pl/assets/hero.webp",
+        "telephone": "+48784995708",
+        "email": "kontakt@piotr.info",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ul. Zagórska 53",
+            "addressLocality": "Biała",
+            "postalCode": "42-125",
+            "addressCountry": "PL"
+        },
+        "priceRange": "$$"
     }
     </script>
+
+    <!-- ==================== STYLE ==================== -->
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .gradient-button {
+            background: linear-gradient(-45deg, #ef4444, #dc2626, #b91c1c, #ef4444);
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-button:hover {
+            animation: none;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
+        }
+
+        .hero-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes arrow-bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(15px); }
+            60% { transform: translateY(8px); }
+        }
+
+        .scroll-arrow { 
+            animation: arrow-bounce 2s infinite; 
+            transition: all 0.3s ease; 
+        }
+        .scroll-arrow:hover { 
+            opacity: 1; 
+            transform: scale(1.1); 
+        }
+
+        @media (max-width: 640px) { 
+            .scroll-arrow { display: none; } 
+        }
+
+        /* NOWOCZESNA NAWIGACJA */
+        .nav-link {
+            position: relative;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        /* KARTY PRODUKTÓW */
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-image {
+            transition: transform 0.4s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        /* PRZYCISK ALLEGRO */
+        .allegro-btn {
+            background: linear-gradient(135deg, #ff6a00 0%, #ff8800 100%);
+            color: white;
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 106, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .allegro-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 106, 0, 0.4);
+            background: linear-gradient(135deg, #ff8800 0%, #ff6a00 100%);
+        }
+
+        /* BADGE */
+        .badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* SEKCJE Z GRADIENTEM */
+        .section-lato {
+            background: linear-gradient(180deg, #fef3c7 0%, #ffffff 100%);
+        }
+        
+        .section-zima {
+            background: linear-gradient(180deg, #dbeafe 0%, #ffffff 100%);
+        }
+        
+        .section-organizacja {
+            background: linear-gradient(180deg, #d1fae5 0%, #ffffff 100%);
+        }
+		/* Sticky CTA Mobile */
+.sticky-cta-mobile {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    padding: 12px 16px;
+    gap: 12px;
+}
+
+.sticky-cta-mobile a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-call {
+    background: linear-gradient(135deg, #004e92 0%, #00c6ff 100%);
+    color: white;
+}
+
+.cta-message {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.cta-call:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 78, 146, 0.4);
+}
+
+.cta-message:hover {
+    background: #e5e7eb;
+}
+
+/* Pokaż tylko na mobile */
+@media (max-width: 768px) {
+    .sticky-cta-mobile {
+        display: flex;
+    }
+    
+    /* Dodaj padding do body, żeby CTA nie zasłaniało treści */
+    body {
+        padding-bottom: 80px;
+    }
+}
+
+    </style>
 </head>
 
-<body class="font-sans text-gray-800 antialiased overflow-x-hidden">
+<body class="font-sans text-gray-800 antialiased overflow-x-hidden bg-white">
+
+<!-- ====================================================== NAVIGATION ====================================================== -->
+<nav class="bg-primary/95 backdrop-blur-md text-white sticky top-0 z-50 shadow-xl border-b border-white/10">
+    <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="text-2xl font-bold tracking-wide flex items-center gap-2">
+            <span>🏖️</span>
+            <span>Akcesoria‑Piotr</span>
+        </div>
+        <div class="flex gap-1 sm:gap-2 text-base font-semibold overflow-x-auto w-full sm:w-auto justify-center">
+            <a href="#lato" class="nav-link">☀️ Sezon Letni</a>
+            <a href="#zima" class="nav-link">❄️ Sezon Zimowy</a>
+            <a href="#organizacja" class="nav-link">🔧 Organizacja</a>
+            <a href="#kontakt" class="nav-link">📞 Kontakt</a>
+        </div>
+    </div>
+</nav>
 
 <!-- ====================================================== HERO ====================================================== -->
-<header class="relative bg-gray-900 text-white">
+<header class="relative bg-gray-900 text-white min-h-[85vh] flex items-center">
     <picture>
         <source srcset="/assets/hero.webp" type="image/webp">
         <img src="/assets/hero.webp"
-             alt="Leżaki Plażowe Premium – dwa modele na plaży przy wschodzie słońca"
+             alt="Akcesoria Piotr - Leżaki i wyposażenie"
              width="1920" height="1080"
-             class="w-full h-auto object-cover"
-             loading="eager">
+             class="absolute inset-0 w-full h-full object-cover opacity-50"
+             fetchpriority="high" loading="eager">
     </picture>
 
-    <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-700 opacity-70"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/60 to-gray-900/95"></div>
 
-    <div class="absolute inset-0 flex flex-col items-start justify-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-12">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Leżaki Plażowe Premium</h1>
-        <p class="text-lg sm:text-xl md:text-2xl max-w-lg mb-6">
-            Lekki, składany w 5 s, wodoszczelny – idealny na plażę, ogród i hotele.
+    <div class="relative container mx-auto px-4 text-center z-10">
+        <span class="inline-block bg-yellow-500/20 backdrop-blur-sm text-yellow-300 text-sm font-bold px-4 py-2 rounded-full mb-6 border border-yellow-500/30">
+            ✨ Nowa Kolekcja 2026
+        </span>
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 hero-text leading-tight">
+            Jakość przez<br/><span class="text-yellow-400">cały rok</span>
+        </h1>
+        <p class="text-xl sm:text-2xl max-w-3xl mx-auto mb-10 hero-text text-gray-200 font-light">
+            Od relaksu na plaży, przez zimową zabawę, aż po porządek w garażu. 
+            Sprawdź naszą ofertę wielosezonową.
         </p>
-        <a href="#signup"
-           class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded font-semibold">
-            Skontaktuj się z nami!
-        </a>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#lato" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-10 rounded-full shadow-2xl transition transform hover:-translate-y-1 hover:shadow-yellow-500/30">
+                ☀️ Zobacz ofertę LETNIĄ
+            </a>
+            <a href="calculator.html" class="gradient-button text-white font-bold py-4 px-10 rounded-full shadow-2xl transition transform hover:-translate-y-1">
+                🧮 Kalkulator Leżaków
+            </a>
+        </div>
     </div>
+
+    <a href="#lato" class="scroll-arrow absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white opacity-90 hover:opacity-100 transition flex flex-col items-center">
+        <span class="text-white text-sm font-semibold mb-3">Odkryj więcej</span>
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </a>
 </header>
 
-<!-- ================================================== MODELE ================================================== -->
-<section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12">Nasze modele</h2>
-
-    <div class="grid gap-12 md:grid-cols-2">
-
-      <!-- MODEL 1 -->
-      <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-        <div class="h-[1100px] bg-gray-100 flex items-center justify-center overflow-hidden">
-          <img src="assets/model1.webp"
-               alt="Leżak Uniwersalny"
-               class="max-w-full max-h-full object-contain p-4">
-        </div>
-
-        <div class="p-6 flex flex-col flex-1">
-          <h3 class="text-2xl font-semibold mb-3 text-primary">Model Uniwersalny</h3>
-          <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
-            <li>Aluminiumowy stelaż, waga <strong>2,8 kg</strong>, udźwig <strong>120 kg</strong></li>
-            <li>Szlifowane podłokietniki z bukowego drewna, zabezpieczone lakierem</li>
-            <li>Pikowana tkanina w różnych wzorach – elegancki design</li>
-            <li>Antypoślizgowe stopki, idealny na plażę, ogród, camping, taras, działkę, balkon</li>
-          </ul>
-          <p class="text-sm text-gray-600 mb-4"><strong>Na zamówienie:</strong> wybierz kolor tkaniny, wzór lub dodatkowe akcesoria.</p>
-          <a href="#signup"
-             class="mt-auto inline-block bg-primary text-white font-medium py-2 px-4 rounded hover:bg-primary/80 transition">
-            Zamów teraz
-          </a>
-        </div>
-      </article>
-
-      <!-- MODEL 2 -->
-      <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-        <div class="h-[1100px] bg-gray-100 flex items-center justify-center overflow-hidden">
-          <img src="assets/model2.webp"
-               alt="Leżak Hotelowy"
-               class="max-w-full max-h-full object-contain p-4">
-        </div>
-
-        <div class="p-6 flex flex-col flex-1">
-          <h3 class="text-2xl font-semibold mb-3 text-primary">Model Hotelowy</h3>
-          <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
-            <li>Aluminiumowy stelaż, waga <strong>3,3 kg</strong>, udźwig <strong>150 kg</strong></li>
-            <li>Szlifowane podłokietniki z bukowego drewna, lakierowane</li>
-            <li>Tkanina siatka PVC, odporna na UV i warunki atmosferyczne – dostępna w trzech kolorach</li>
-            <li>Łatwa w czyszczeniu, antypoślizgowe stopki, idealna dla hoteli i obiektów komercyjnych</li>
-          </ul>
-          <p class="text-sm text-gray-600 mb-4"><strong>Na zamówienie:</strong> możliwość wyboru koloru a także dodatkowego graweru na podłokietnikach.</p>
-          <a href="#signup"
-             class="mt-auto inline-block bg-primary text-white font-medium py-2 px-4 rounded hover:bg-primary/80 transition">
-            Zamów teraz
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==================================================== GALERIA ==================================================== -->
-<section class="py-12 bg-white">
+<!-- ====================================================== SEKCJA: LATO ====================================================== -->
+<section id="lato" class="py-24 section-lato">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">Galeria</h2>
-        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <img src="/assets/gal-1.webp" alt="Leżak w akcji – plaża" class="rounded-lg object-cover w-full h-48">
-            <img src="/assets/gal-2.webp" alt="Leżak w ogrodzie przy zachodzie słońca" class="rounded-lg object-cover w-full h-48">
-            <img src="/assets/gal-3.webp" alt="Leżak w campingowym otoczeniu" class="rounded-lg object-cover w-full h-48">
-            <img src="/assets/gal-4.webp" alt="Leżak na balkonie z widokiem na miasto" class="rounded-lg object-cover w-full h-48">
+        <div class="text-center mb-16">
+            <span class="inline-block bg-yellow-200 text-yellow-900 text-sm font-bold px-4 py-2 rounded-full uppercase tracking-wide mb-4">☀️ Sezon Letni</span>
+            <h2 class="text-4xl md:text-5xl font-bold mt-4 text-gray-900">Relaks i Wypoczynek</h2>
+            <p class="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">Nasze flagowe produkty. Lekkie, aluminiowe leżaki idealne na plażę, do ogrodu i hoteli.</p>
+        </div>
+
+        <div class="grid gap-12 md:grid-cols-2">
+            <!-- MODEL 1 -->
+            <article class="product-card bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col">
+                <div class="h-[450px] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden relative">
+                    <img src="assets/model1.webp" alt="Leżak Uniwersalny" class="product-image max-w-full max-h-full object-contain p-6" loading="lazy">
+                    <span class="badge bg-gradient-to-r from-yellow-400 to-yellow-500 text-white">🔥 Bestseller</span>
+                </div>
+                <div class="p-8 flex flex-col flex-1">
+                    <h3 class="text-2xl font-bold mb-4 text-primary">Model Uniwersalny</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-3 mb-6 text-base">
+                        <li>Waga: <strong class="text-primary">2,8 kg</strong> | Udźwig: <strong class="text-primary">120 kg</strong></li>
+                        <li>Podłokietniki z bukowego drewna</li>
+                        <li>Pikowana tkanina (wielowzorcowa)</li>
+                        <li>Składany w 5 sekund</li>
+                    </ul>
+                    <a href="calculator.html" class="mt-auto w-full bg-primary text-white font-bold py-4 px-6 rounded-xl hover:bg-primary/90 transition text-center shadow-lg hover:shadow-xl">
+                        Skonfiguruj i zamów
+                    </a>
+					<a href="https://allegro.pl/uzytkownik/akcesoria-piotr" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="mt-3 w-full allegro-btn justify-center">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    Kup na Allegro
+</a>
+                </div>
+            </article>
+
+            <!-- MODEL 2 -->
+            <article class="product-card bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col">
+                <div class="h-[450px] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center overflow-hidden relative">
+                    <img src="assets/model2.webp" alt="Leżak Hotelowy" class="product-image max-w-full max-h-full object-contain p-6" loading="lazy">
+                    <span class="badge bg-gradient-to-r from-gray-700 to-gray-900 text-white">💼 Profesjonalny</span>
+                </div>
+                <div class="p-8 flex flex-col flex-1">
+                    <h3 class="text-2xl font-bold mb-4 text-primary">Model Hotelowy</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-3 mb-6 text-base">
+                        <li>Waga: <strong class="text-primary">3,3 kg</strong> | Udźwig: <strong class="text-primary">150 kg</strong></li>
+                        <li>Tkanina PVC (łatwa w czyszczeniu)</li>
+                        <li>Odporność na UV i słoną wodę</li>
+                        <li>Idealny dla hoteli i obiektów</li>
+                    </ul>
+                    <a href="calculator.html" class="mt-auto w-full bg-primary text-white font-bold py-4 px-6 rounded-xl hover:bg-primary/90 transition text-center shadow-lg hover:shadow-xl">
+                        Skonfiguruj i zamów
+                    </a>
+					<a href="https://allegro.pl/uzytkownik/akcesoria-piotr" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="mt-3 w-full allegro-btn justify-center">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    Kup na Allegro
+</a>
+                </div>
+            </article>
         </div>
     </div>
 </section>
 
-<!-- =============================================== FORMULARZ LEAD =============================================== -->
-<!-- =============================================== FORMULARZ LEAD =============================================== -->
-<section id="signup" class="py-16 bg-indigo-600 text-white">
-    <div class="container mx-auto px-4 max-w-2xl text-center">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-4">Poproś o ofertę indywidualną!</h2>
-        <p class="mb-8 text-sm sm:text-base">Podaj swój e‑mail – skontaktujemy się najszybciej jak to możliwe.</p>
+<!-- ====================================================== SEKCJA: ZIMA ====================================================== -->
+<section id="zima" class="py-24 section-zima">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <span class="inline-block bg-blue-200 text-blue-900 text-sm font-bold px-4 py-2 rounded-full uppercase tracking-wide mb-4">❄️ Sezon Zimowy</span>
+            <h2 class="text-4xl md:text-5xl font-bold mt-4 text-gray-900">Zabawa na śniegu</h2>
+            <p class="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">Solidne sanki dla dzieci. Bezpieczne konstrukcje i radość z jazdy.</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+            <!-- PRODUKT 1 -->
+            <article class="product-card bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="h-64 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative">
+                    <img src="assets/sanki-classic.webp" alt="Sanki Classic" class="w-full h-full object-contain">
+                    <span class="badge bg-gradient-to-r from-blue-400 to-blue-600 text-white">Nowość</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-blue-900">Sanki Classic</h3>
+                    <p class="text-gray-600 text-sm mb-4">Klasyczne metalowe sanki z drewnianym siedziskiem oraz podnóżkami. Idealne dla najmłodszych.</p>
+                    <a href="https://allegro.pl/uzytkownik/akcesoria-piotr" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="allegro-btn w-full justify-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        Kup na Allegro
+                    </a>
+                </div>
+            </article>
+
+            <!-- PRODUKT 2 -->
+            <article class="product-card bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="h-64 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative">
+                    <img src="assets/sanki-dwuosobowe.webp" alt="Sanki Classic" class="w-full h-full object-contain">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-blue-900">Sanki Dwuosobowe</h3>
+                    <p class="text-gray-600 text-sm mb-4">Dłuższa wersja sanek classic. Idealna dla dwójki dzieci lub dorosłego!</p>
+                    <a href="https://allegro.pl/uzytkownik/akcesoria-piotr" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="allegro-btn w-full justify-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        Kup na Allegro
+                    </a>
+                </div>
+            </article>
+
+            <!-- PRODUKT 3 -->
+            <article class="product-card bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="h-64 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center relative">
+                    <img src="assets/sanki-owal.webp" alt="Sanki Classic" class="w-full h-full object-contain">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-blue-900">Sanki Dla Wymagających</h3>
+                    <p class="text-gray-600 text-sm mb-4">Najbardziej wytrzymałe sanki w naszej ofercie. Idealne dla dorosłych!</p>
+                    <a href="https://allegro.pl/uzytkownik/akcesoria-piotr" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="allegro-btn w-full justify-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        Kup na Allegro
+                    </a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================== SEKCJA: ORGANIZACJA ====================================================== -->
+<section id="organizacja" class="py-24 section-organizacja">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <span class="inline-block bg-emerald-200 text-emerald-900 text-sm font-bold px-4 py-2 rounded-full uppercase tracking-wide mb-4">🔧 Cały Rok</span>
+            <h2 class="text-4xl md:text-5xl font-bold mt-4 text-gray-900">Porządek w Garażu</h2>
+            <p class="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">Stojaki na koła i wieszaki. Oszczędź miejsce i zadbaj o swoje opony.</p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2">
+            <!-- PRODUKT 1 -->
+            <article class="product-card bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+                <div class="md:w-2/5 h-64 md:h-auto bg-gradient-to-br from-emerald-100 to-emerald-200 flex items-center justify-center">
+                    <img src="assets/stojak.webp" alt="Sanki Classic" class="w-full h-full object-contain">
+                </div>
+                <div class="p-8 md:w-3/5 flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-900">Stojak na Opony</h3>
+                    <p class="text-gray-600 text-base mb-6">Solidna konstrukcja stalowa. Pomieści do ośmiu opon o szerokości 235/21cali. Chroni felgi przed zarysowaniem.</p>
+                    <a href="https://allegro.pl/uzytkownik/akcesoria-piotr" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="allegro-btn w-full justify-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        Kup na Allegro
+                    </a>
+                </div>
+            </article>
+
+            <!-- PRODUKT 2 -->
+            <article class="product-card bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+                <div class="md:w-2/5 h-64 md:h-auto bg-gradient-to-br from-emerald-100 to-emerald-200 flex items-center justify-center">
+                    <img src="assets/wieszak.webp" alt="Sanki Classic" class="w-full h-full object-contain">
+                </div>
+                <div class="p-8 md:w-3/5 flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-900">Wieszaki Ścienne</h3>
+                    <p class="text-gray-600 text-base mb-6">Wieszaki ścienne na opony i koła. W ofercie posiadamy wieszaki na 4 oraz 8 opon.</p>
+                    <a href="https://allegro.pl/uzytkownik/akcesoria-piotr" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="allegro-btn w-full justify-center">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        Kup na Allegro
+                    </a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================== FORMULARZ KONTAKTOWY =============================================== -->
+<section id="kontakt" class="py-24 bg-gradient-to-br from-primary via-primary/90 to-secondary text-white relative overflow-hidden">
+    <!-- Dekoracyjne tło -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <circle cx="10" cy="10" r="30" fill="white"/>
+            <circle cx="90" cy="90" r="40" fill="white"/>
+        </svg>
+    </div>
+
+    <div class="container mx-auto px-4 max-w-4xl text-center relative z-10">
+        <span class="inline-block bg-white/20 backdrop-blur-sm text-white text-sm font-bold px-4 py-2 rounded-full mb-6">📩 Szybki kontakt</span>
+        <h2 class="text-4xl sm:text-5xl font-bold mb-6">Skontaktuj się z nami</h2>
+        <p class="mb-12 text-xl text-gray-200 font-light">Masz pytania dotyczące leżaków, sanek lub stojaków? Napisz do nas!</p>
 
         <form action="https://formspree.io/f/xbdqyqgp"
               method="POST"
-              class="grid gap-4 grid-cols-1 sm:grid-cols-2"
+              class="bg-white/10 backdrop-blur-md p-10 rounded-3xl shadow-2xl border border-white/20 text-left"
               autocomplete="on">
 
-            <input type="text" 
-                   name="name" 
-                   placeholder="Imię i nazwisko" 
-                   required
-                   class="w-full p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+            <div class="grid gap-6 grid-cols-1 sm:grid-cols-2">
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-gray-200">Imię i nazwisko</label>
+                    <input type="text" name="name" required class="w-full p-4 rounded-xl bg-white/90 text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition border-0">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-gray-200">E-mail</label>
+                    <input type="email" name="_replyto" required class="w-full p-4 rounded-xl bg-white/90 text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition border-0">
+                </div>
+                <div class="sm:col-span-2">
+                    <label class="block text-sm font-medium mb-2 text-gray-200">Telefon (opcjonalnie)</label>
+                    <input type="tel" name="phone" class="w-full p-4 rounded-xl bg-white/90 text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition border-0">
+                </div>
+                <div class="sm:col-span-2">
+                    <label class="block text-sm font-medium mb-2 text-gray-200">Wiadomość</label>
+                    <textarea name="message" rows="4" required class="w-full p-4 rounded-xl bg-white/90 text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition border-0"></textarea>
+                </div>
+            </div>
 
-            <input type="email" 
-                   name="_replyto" 
-                   placeholder="E‑mail" 
-                   required
-                   class="w-full p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300">
-
-            <input type="tel" 
-                   name="phone" 
-                   placeholder="Telefon (opcjonalnie)"
-                   class="w-full p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 sm:col-span-2">
-
-            <textarea name="message" 
-                      rows="3" 
-                      placeholder="Opisz, czego potrzebujesz (np. kolor tkaniny, ilość)…"
-                      class="w-full p-3 rounded bg-white bg-opacity-20 text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 sm:col-span-2"></textarea>
-
-            <input type="text" name="_gotcha" style="display:none">
-            <input type="hidden" name="_next" value="https://akcesoria-piotr.pl/thank-you.html">
-            <input type="hidden" name="_subject" value="Nowy lead – Leżaki Plażowe Premium">
-
-            <button type="submit"
-                    class="w-full sm:col-span-2 bg-white text-indigo-600 font-semibold py-3 px-4 rounded hover:bg-gray-100 transition text-sm sm:text-base">
-                Poproś o kontakt
+            <input type="hidden" name="_subject" value="Nowa wiadomość ze strony głównej">
+            
+            <button type="submit" class="w-full mt-8 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-5 rounded-xl shadow-2xl transition transform hover:-translate-y-1 text-lg">
+                ✉️ Wyślij wiadomość
             </button>
         </form>
 
-        <p class="text-xs sm:text-sm opacity-80 mt-4">
-            *Skontaktujemy się z Tobą jak najszybciej!
-        </p>
+        <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-gray-200">
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
+                <div class="text-3xl mb-3">📍</div>
+                <p class="font-bold text-white text-lg">Adres</p>
+                <p class="text-gray-300">ul. Zagórska 53<br>42-125 Biała</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
+                <div class="text-3xl mb-3">📞</div>
+                <p class="font-bold text-white text-lg">Telefon</p>
+                <p class="text-gray-300">+48 784-995-708</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
+                <div class="text-3xl mb-3">📧</div>
+                <p class="font-bold text-white text-lg">E-mail</p>
+                <p class="text-gray-300">kontakt@piotr.info</p>
+            </div>
+        </div>
     </div>
-</section>
-
-
-<!-- ==================== FAQ ==================== -->
-<section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-4 max-w-3xl">
-    <h2 class="text-3xl font-bold text-center mb-12">Najczęściej zadawane pytania</h2>
-
-    <div class="space-y-4">
-      <details class="bg-white rounded-xl p-6 shadow-md group">
-        <summary class="font-semibold text-lg text-primary cursor-pointer flex justify-between items-center">
-          Czy leżak jest lekki?
-          <span class="transform group-open:rotate-180 transition">▼</span>
-        </summary>
-        <p class="mt-4 text-gray-700">
-          Tak – model Uniwersalny waży <strong>2,8 kg</strong>, a model Hotelowy <strong>3,3 kg</strong>, co ułatwia transport i przechowywanie.
-        </p>
-      </details>
-
-      <details class="bg-white rounded-xl p-6 shadow-md group">
-        <summary class="font-semibold text-lg text-primary cursor-pointer flex justify-between items-center">
-          Czy leżaki nadają się do hoteli?
-          <span class="transform group-open:rotate-180 transition">▼</span>
-        </summary>
-        <p class="mt-4 text-gray-700">
-          Model Hotelowy ma udźwig <strong>150 kg</strong> i tkaninę PVC odporną na promieniowanie UV – został zaprojektowany z myślą o obiektach komercyjnych.
-        </p>
-      </details>
-
-      <details class="bg-white rounded-xl p-6 shadow-md group">
-        <summary class="font-semibold text-lg text-primary cursor-pointer flex justify-between items-center">
-          Jak dbać o leżak?
-          <span class="transform group-open:rotate-180 transition">▼</span>
-        </summary>
-        <p class="mt-4 text-gray-700">
-          Wystarczy przemywać letnią wodą i delikatnie wycierać suchą ściereczką. Model z tkaniną PVC nie wymaga specjalnych środków.
-        </p>
-      </details>
-    </div>
-  </div>
 </section>
 
 <!-- ==================== STOPKA ==================== -->
-<footer class="bg-gray-900 text-gray-300 py-8">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-            <p class="font-semibold text-white">Akcesoria‑Piotr</p>
-            <p>ul. Zagórska 53, 42-125 Biała</p>
-            <p>kontakt@piotr.info | +48 784-995-708</p>
+<footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Akcesoria‑Piotr</h3>
+                <p class="text-gray-400">Twój partner w każdej porze roku. Jakość i trwałość od lat.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Oferta</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#lato" class="hover:text-yellow-400 transition">Leżaki plażowe</a></li>
+                    <li><a href="#zima" class="hover:text-blue-400 transition">Sanki dziecięce</a></li>
+                    <li><a href="#organizacja" class="hover:text-emerald-400 transition">Stojaki i wieszaki</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Kontakt</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li>📞 +48 784-995-708</li>
+                    <li>📧 kontakt@piotr.info</li>
+                    <li>📍 ul. Zagórska 53, Biała</li>
+                </ul>
+            </div>
         </div>
-        <div class="flex space-x-4">
-            <!-- Ikonki social media -->
+        <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+            © 2026 Akcesoria‑Piotr. Wszelkie prawa zastrzeżone.
         </div>
-    </div>
-    <div class="text-center mt-4 text-sm opacity-70">
-        © 2026 Akcesoria‑Piotr. Wszelkie prawa zastrzeżone.
     </div>
 </footer>
-
+<!-- Sticky CTA Mobile -->
+<div class="sticky-cta-mobile">
+    <a href="tel:+48784995708" class="cta-call">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+        Zadzwoń
+    </a>
+    <a href="#kontakt" class="cta-message">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+        </svg>
+        Napisz
+    </a>
+</div>
 </body>
 </html>
