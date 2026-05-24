@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamów Leżak | Akcesoria-Piotr</title>
+    <meta name="description" content="Zamów leżak plażowy lub hotelowy przez formularz. Płatność za pobraniem. Szybka realizacja!">
+    <meta name="keywords" content="leżaki plażowe, leżaki hotelowe, zamówienie, za pobraniem">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Zamów Leżak - Akcesoria-Piotr">
+    <meta property="og:description" content="Zamów leżak z dostawą za pobraniem. Prosty formularz, szybka realizacja.">
+    <meta property="og:image" content="https://akcesoria-piotr.pl/assets/hero.webp">
+    <meta property="og:url" content="https://akcesoria-piotr.pl/order.html">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <link href="./assets/style.css" rel="stylesheet">
+
+    <style>
+        .fabric-card img {
+            transition: transform 0.3s ease-in-out;
+        }
+        .fabric-card:hover img {
+            transform: scale(1.1);
+        }
+        .selected-fabric {
+            border: 4px solid #004e92 !important;
+            box-shadow: 0 0 15px rgba(0, 78, 146, 0.5);
+        }
+        .fabric-preview {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 16px;
+            z-index: 1000;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+        .fabric-preview.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .fabric-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .fabric-preview-name {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .model-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .model-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .model-card.selected {
+            border: 4px solid #004e92 !important;
+            box-shadow: 0 0 20px rgba(0, 78, 146, 0.4);
+        }
+        .qty-btn {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #004e92;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .qty-btn:hover {
+            background: #003a6b;
+            transform: scale(1.05);
+        }
+        .qty-btn:active {
+            transform: scale(0.95);
+        }
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .order-item {
+            transition: all 0.3s ease;
+        }
+        .order-item:hover {
+            background-color: #f9fafb;
+        }
+        .btn-add {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+        .btn-add:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+        }
+        .btn-add:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .empty-cart {
+            background: #fef3c7;
+            border: 2px dashed #f59e0b;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+<!-- ==================== HEADER ==================== -->
+<header class="bg-primary text-white py-4 shadow-md sticky top-0 z-40">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <span class="text-2xl">🏖️</span>
+            <h1 class="text-xl font-bold">Akcesoria-Piotr</h1>
+        </div>
+        <a href="index.html" class="flex items-center gap-2 text-white hover:text-gray-200 transition text-sm font-semibold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Strona główna
+        </a>
+    </div>
+</header>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="py-8 md:py-12">
+    <div class="container mx-auto px-4 max-w-6xl">
+
+        <!-- Page Title -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-3">Złóż zamówienie</h2>
+            <p class="text-gray-600 max-w-xl mx-auto">
+                Dodawaj różne modele i kolory leżaków do zamówienia. Płatność za pobraniem.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+
+            <!-- LEFT COLUMN: Product Selection -->
+            <div class="lg:col-span-2 space-y-6">
+
+                <!-- Step 1: Model Selection -->
+                <div id="step1" class="bg-white rounded-2xl shadow-lg p-6">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">1</div>
+                        <h3 class="text-xl font-bold text-gray-900">Wybierz model leżaka</h3>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div onclick="selectModel('standard', 129)" id="model-standard"
+                             class="model-card border-4 border-gray-200 rounded-2xl overflow-hidden bg-gray-50">
+                            <div class="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                                <img src="assets/model1.webp" alt="Leżak Standardowy" class="max-w-full max-h-full object-contain p-4">
+                            </div>
+                            <div class="p-5">
+                                <h4 class="font-bold text-lg mb-1">Leżak Standardowy</h4>
+                                <p class="text-sm text-gray-500 mb-3">Waga: 2,8 kg | Udźwig: 120 kg</p>
+                                <p class="text-2xl font-bold text-primary">129 zł</p>
+                            </div>
+                        </div>
+
+                        <div onclick="selectModel('hotel', 179)" id="model-hotel"
+                             class="model-card border-4 border-gray-200 rounded-2xl overflow-hidden bg-gray-50">
+                            <div class="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                                <img src="assets/model2.webp" alt="Leżak Hotelowy" class="max-w-full max-h-full object-contain p-4">
+                            </div>
+                            <div class="p-5">
+                                <h4 class="font-bold text-lg mb-1">Leżak Hotelowy</h4>
+                                <p class="text-sm text-gray-500 mb-3">Waga: 3,3 kg | Udźwig: 150 kg</p>
+                                <p class="text-2xl font-bold text-primary">179 zł</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Fabric Selection -->
+                <div id="step2" class="bg-white rounded-2xl shadow-lg p-6 opacity-50 pointer-events-none transition-opacity">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center font-bold text-lg">2</div>
+                        <h3 class="text-xl font-bold text-gray-900">Wybierz tkaninę</h3>
+                    </div>
+
+                    <div id="fabric-preview" class="fabric-preview">
+                        <img id="fabric-preview-img" src="" alt="Podgląd tkaniny">
+                        <div id="fabric-preview-name" class="fabric-preview-name"></div>
+                    </div>
+
+                    <div id="fabric-grid" class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+                    </div>
+                    <p id="fabric-info" class="mt-4 text-sm text-gray-500 text-center">Najpierw wybierz model leżaka.</p>
+                </div>
+
+                <!-- Step 3: Quantity -->
+                <div id="step3" class="bg-white rounded-2xl shadow-lg p-6 opacity-50 pointer-events-none transition-opacity">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center font-bold text-lg">3</div>
+                        <h3 class="text-xl font-bold text-gray-900">Ilość sztuk</h3>
+                    </div>
+
+                    <div class="flex items-center justify-center gap-6">
+                        <button onclick="changeQuantity(-1)" class="qty-btn">−</button>
+                        <input type="number" id="quantity" value="1" min="1" max="10"
+                               class="w-24 text-center text-3xl font-bold p-3 border-2 border-gray-300 rounded-xl focus:border-primary"
+                               oninput="handleQuantityInput()">
+                        <button onclick="changeQuantity(1)" class="qty-btn">+</button>
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4">Maksymalnie 10 sztuk na jedną pozycję</p>
+
+                    <div class="mt-6 text-center">
+                        <button onclick="addToOrder()" id="add-to-order-btn" disabled
+                                class="btn-add disabled:opacity-50 disabled:cursor-not-allowed">
+                            ➕ Dodaj do zamówienia
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Order Items List -->
+                <div id="order-items-section" class="bg-white rounded-2xl shadow-lg p-6">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-lg">✓</div>
+                        <h3 class="text-xl font-bold text-gray-900">Twoje zamówienie</h3>
+                    </div>
+
+                    <div id="order-items-list">
+                        <div class="empty-cart">
+                            <p class="text-gray-600">🛒</p>
+                            <p class="text-gray-600 mt-2">Twoje zamówienie jest puste.</p>
+                            <p class="text-gray-500 text-sm mt-1">Dodaj leżaki używając formularza powyżej.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping Form -->
+                <div id="shipping-section" class="bg-white rounded-2xl shadow-lg p-6 opacity-50 pointer-events-none transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center font-bold text-lg">4</div>
+                        <h3 class="text-xl font-bold text-gray-900">Dane do wysyłki</h3>
+                    </div>
+
+                    <div class="space-y-5">
+                        <div>
+                            <label for="customer-name" class="block text-sm font-semibold text-gray-700 mb-2">Imię i nazwisko *</label>
+                            <input type="text" id="customer-name" required placeholder="Jan Kowalski"
+                                   class="w-full p-4 text-lg border-2 border-gray-300 rounded-xl focus:border-primary transition">
+                        </div>
+                        <div>
+                            <label for="customer-phone" class="block text-sm font-semibold text-gray-700 mb-2">Telefon *</label>
+                            <input type="tel" id="customer-phone" required placeholder="+48 123 456 789"
+                                   class="w-full p-4 text-lg border-2 border-gray-300 rounded-xl focus:border-primary transition">
+                        </div>
+                        <div>
+                            <label for="customer-street" class="block text-sm font-semibold text-gray-700 mb-2">Ulica i numer *</label>
+                            <input type="text" id="customer-street" required placeholder="ul. Główna 15/3"
+                                   class="w-full p-4 text-lg border-2 border-gray-300 rounded-xl focus:border-primary transition">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="customer-zip" class="block text-sm font-semibold text-gray-700 mb-2">Kod pocztowy *</label>
+                                <input type="text" id="customer-zip" required placeholder="00-000"
+                                       class="w-full p-4 text-lg border-2 border-gray-300 rounded-xl focus:border-primary transition">
+                            </div>
+                            <div>
+                                <label for="customer-city" class="block text-sm font-semibold text-gray-700 mb-2">Miasto *</label>
+                                <input type="text" id="customer-city" required placeholder="Warszawa"
+                                       class="w-full p-4 text-lg border-2 border-gray-300 rounded-xl focus:border-primary transition">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="customer-notes" class="block text-sm font-semibold text-gray-700 mb-2">Uwagi (opcjonalnie)</label>
+                            <textarea id="customer-notes" rows="2" placeholder="Np. preferowany termin dostawy"
+                                      class="w-full p-4 text-lg border-2 border-gray-300 rounded-xl focus:border-primary transition"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Summary -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-2xl shadow-xl p-6 sticky top-24">
+
+                    <!-- Payment badge -->
+                    <div class="bg-green-100 border-2 border-green-500 rounded-xl p-4 mb-6 text-center">
+                        <div class="flex items-center justify-center gap-2">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="font-bold text-green-700">Płatność za pobraniem</span>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold mb-5 pb-4 border-b border-gray-200">Podsumowanie</h3>
+
+                    <div id="summary-items" class="space-y-2 text-sm max-h-60 overflow-y-auto mb-4">
+                        <p class="text-gray-500 text-center">Brak pozycji w zamówieniu</p>
+                    </div>
+
+                    <div class="my-4 pt-4 border-t-2 border-gray-200">
+                        <div class="flex justify-between items-center text-2xl font-bold">
+                            <span>Suma:</span>
+                            <span id="summary-total" class="text-primary">0 zł</span>
+                        </div>
+                        <p class="text-xs text-gray-500 text-right mt-1">z VAT</p>
+                    </div>
+
+                    <button onclick="submitOrder()" id="submit-btn"
+                            class="w-full bg-primary text-white text-lg font-bold py-4 rounded-xl hover:bg-primary/90 transition shadow-lg hover:shadow-xl disabled:bg-gray-300 disabled:cursor-not-allowed"
+                            disabled>
+                        Złóż zamówienie
+                    </button>
+
+                    <div class="mt-5 pt-5 border-t border-gray-200 text-center">
+                        <p class="text-xs text-gray-500">
+                            Zamówienie zostanie przesłane e-mailem.<br>
+                            Dostawa: paczka pocztowa lub kurier.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- ==================== SUCCESS MODAL ==================== -->
+<div id="success-modal" class="modal-overlay">
+    <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Zamówienie wysłane!</h3>
+        <p class="text-gray-600 mb-6">
+            Twoje zamówienie zostało przyjęte. Skontaktujemy się z Tobą w ciągu <strong>24 godzin</strong> w celu potwierdzenia.
+        </p>
+        <p class="text-sm text-gray-500 mb-6">
+            W razie pytań: <strong>+48 784-995-708</strong>
+        </p>
+        <a href="index.html" class="inline-block w-full bg-primary text-white font-semibold py-3 rounded-xl hover:bg-primary/80 transition">
+            Wróć do strony głównej
+        </a>
+    </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-gray-900 text-gray-300 py-8 mt-12">
+    <div class="container mx-auto px-4 text-center">
+        <div class="flex flex-wrap justify-center gap-4 text-sm mb-4">
+            <a href="polityka-prywatnosci.html" class="text-gray-400 hover:text-yellow-400 transition">Polityka prywatności</a>
+            <span class="text-gray-600">|</span>
+            <a href="regulamin.html" class="text-gray-400 hover:text-yellow-400 transition">Regulamin</a>
+        </div>
+        <p class="font-semibold text-white">Akcesoria-Piotr</p>
+        <p>ul. Zagórska 53, 42-125 Biała</p>
+        <p>kontakt@piotr.info | +48 784-995-708</p>
+        <p class="text-sm mt-4 opacity-70">© 2026 Akcesoria-Piotr. Wszelkie prawa zastrzeżone.</p>
+    </div>
+</footer>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+    // ========== CONFIGURATION ==========
+    const ORDER_CONFIG = {
+        products: {
+            loungers: {
+                models: {
+                    standard: {
+                        name: "Leżak Standardowy",
+                        price: 129,
+                        img: "assets/model1.webp"
+                    },
+                    hotel: {
+                        name: "Leżak Hotelowy",
+                        price: 179,
+                        img: "assets/model2.webp"
+                    }
+                },
+                fabrics: {
+                    standard: [
+                        { id: 'p1', name: 'Pikowana 1', price: 0, img: 'assets/fab-p1.webp' },
+                        { id: 'p2', name: 'Pikowana 2', price: 0, img: 'assets/fab-p2.webp' },
+                        { id: 'p3', name: 'Pikowana 3', price: 0, img: 'assets/fab-p3.webp' },
+                        { id: 'p4', name: 'Pikowana 4', price: 0, img: 'assets/fab-p4.webp' },
+                        { id: 'p5', name: 'Pikowana 5', price: 0, img: 'assets/fab-p5.webp' },
+                        { id: 'p6', name: 'Pikowana 6', price: 0, img: 'assets/fab-p6.webp' },
+                    ],
+                    hotel: [
+                        { id: 'pvc1', name: 'PVC Pasy Biało-Niebieskie', price: 0, img: 'assets/fab-pvc1.webp' },
+                        { id: 'pvc2', name: 'PVC Grafit', price: 0, img: 'assets/fab-pvc2.webp' },
+                        { id: 'pvc3', name: 'PVC Srebrny', price: 0, img: 'assets/fab-pvc3.webp' },
+                    ]
+                }
+            }
+        }
+    };
+
+    // ========== STATE ==========
+    let currentProduct = 'loungers';
+    let currentModel = null;
+    let currentModelPrice = 0;
+    let currentFabricName = '—';
+    let currentFabricPrice = 0;
+    let orderItems = [];
+    let itemIdCounter = 0;
+
+    // ========== PREVIEW ELEMENTS ==========
+    const previewEl = document.getElementById('fabric-preview');
+    const previewImg = document.getElementById('fabric-preview-img');
+    const previewName = document.getElementById('fabric-preview-name');
+
+    // ========== HELPERS ==========
+    function enableStep(stepId) {
+        const el = document.getElementById(stepId);
+        el.classList.remove('opacity-50', 'pointer-events-none');
+    }
+
+    // ========== MODEL SELECTION ==========
+    function selectModel(modelId, price) {
+        currentModel = modelId;
+        currentModelPrice = price;
+
+        document.getElementById('model-standard').classList.remove('selected', 'border-primary');
+        document.getElementById('model-hotel').classList.remove('selected', 'border-primary');
+        document.getElementById('model-' + modelId).classList.add('selected', 'border-primary');
+
+        enableStep('step2');
+        updateFabricGrid();
+        updateAddButton();
+    }
+
+    function updateFabricGrid() {
+        const grid = document.getElementById('fabric-grid');
+        const info = document.getElementById('fabric-info');
+
+        grid.innerHTML = '';
+        const fabrics = ORDER_CONFIG.products[currentProduct].fabrics[currentModel];
+        info.textContent = `Dostępne tkaniny dla modelu ${ORDER_CONFIG.products[currentProduct].models[currentModel].name}:`;
+
+        fabrics.forEach((f, index) => {
+            const card = document.createElement('div');
+            const priceText = f.price > 0 ? `+${f.price} zł` : 'w cenie';
+            card.className = `fabric-card cursor-pointer p-2 border-2 rounded-xl overflow-hidden transition hover:border-primary ${index === 0 ? 'selected-fabric' : 'border-transparent'}`;
+            card.onclick = function() { selectFabric(f.id, f.price, f.name, card); };
+            card.onmouseenter = function(e) { showFabricPreview(f, e); };
+            card.onmouseleave = hideFabricPreview;
+            card.onmousemove = function(e) { moveFabricPreview(e); };
+
+            card.innerHTML = `
+                <img src="${f.img}" alt="${f.name}" class="w-full h-16 object-cover rounded-lg">
+                <p class="text-[10px] text-center mt-1 font-medium truncate">${f.name}</p>
+                <p class="text-[10px] text-center text-green-600 font-bold">${priceText}</p>
+            `;
+            grid.appendChild(card);
+        });
+
+        if (fabrics.length > 0) {
+            selectFabric(fabrics[0].id, fabrics[0].price, fabrics[0].name, grid.children[0]);
+        }
+    }
+
+    function showFabricPreview(fabric, event) {
+        previewImg.src = fabric.img;
+        previewImg.alt = fabric.name;
+        previewName.textContent = fabric.name;
+        previewEl.classList.add('active');
+        moveFabricPreview(event);
+    }
+
+    function hideFabricPreview() {
+        previewEl.classList.remove('active');
+    }
+
+    function moveFabricPreview(event) {
+        const offsetX = 20;
+        const offsetY = 20;
+        let left = event.clientX + offsetX;
+        let top = event.clientY + offsetY;
+
+        if (left + 300 > window.innerWidth) {
+            left = event.clientX - 320;
+        }
+        if (top + 300 > window.innerHeight) {
+            top = event.clientY - 320;
+        }
+
+        previewEl.style.left = left + 'px';
+        previewEl.style.top = top + 'px';
+    }
+
+    function selectFabric(id, price, name, element) {
+        document.querySelectorAll('.fabric-card').forEach(el => el.classList.remove('selected-fabric'));
+        element.classList.add('selected-fabric');
+        currentFabricPrice = price;
+        currentFabricName = name;
+
+        enableStep('step3');
+        updateAddButton();
+    }
+
+    // ========== QUANTITY ==========
+    function changeQuantity(delta) {
+        const input = document.getElementById('quantity');
+        let newValue = parseInt(input.value) + delta;
+        if (newValue < 1) newValue = 1;
+        if (newValue > 10) newValue = 10;
+        input.value = newValue;
+    }
+
+    function handleQuantityInput() {
+        const input = document.getElementById('quantity');
+        let val = parseInt(input.value);
+        if (isNaN(val) || val < 1) val = 1;
+        if (val > 10) val = 10;
+        input.value = val;
+    }
+
+    // ========== ADD BUTTON ==========
+    function updateAddButton() {
+        const btn = document.getElementById('add-to-order-btn');
+        btn.disabled = !(currentModel && currentFabricName !== '—');
+    }
+
+    // ========== ADD TO ORDER ==========
+    function addToOrder() {
+        const quantity = parseInt(document.getElementById('quantity').value) || 1;
+        const unitPrice = currentModelPrice + currentFabricPrice;
+
+        const item = {
+            id: ++itemIdCounter,
+            modelName: ORDER_CONFIG.products[currentProduct].models[currentModel].name,
+            fabricName: currentFabricName,
+            quantity: quantity,
+            unitPrice: unitPrice,
+            total: unitPrice * quantity
+        };
+
+        orderItems.push(item);
+        renderOrderItems();
+        updateSummary();
+        enableStep('shipping-section');
+        resetSelection();
+    }
+
+    function removeOrderItem(id) {
+        orderItems = orderItems.filter(item => item.id !== id);
+        renderOrderItems();
+        updateSummary();
+    }
+
+    function renderOrderItems() {
+        const list = document.getElementById('order-items-list');
+
+        if (orderItems.length === 0) {
+            list.innerHTML = `
+                <div class="empty-cart">
+                    <p class="text-gray-600">🛒</p>
+                    <p class="text-gray-600 mt-2">Twoje zamówienie jest puste.</p>
+                    <p class="text-gray-500 text-sm mt-1">Dodaj leżaki używając formularza powyżej.</p>
+                </div>
+            `;
+            return;
+        }
+
+        list.innerHTML = orderItems.map(item => `
+            <div class="order-item flex items-center justify-between p-4 border-b border-gray-100 last:border-b-0">
+                <div class="flex-1">
+                    <div class="font-semibold text-gray-900">${item.modelName}</div>
+                    <div class="text-sm text-gray-500">${item.fabricName}</div>
+                    <div class="text-sm text-gray-500 mt-1">${item.quantity} szt. × ${item.unitPrice} zł</div>
+                </div>
+                <div class="text-right flex items-center gap-4">
+                    <div class="font-bold text-primary">${item.total.toFixed(2)} zł</div>
+                    <button onclick="removeOrderItem(${item.id})" class="text-red-500 hover:text-red-700 p-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function updateSummary() {
+        const summaryItems = document.getElementById('summary-items');
+        const summaryTotal = document.getElementById('summary-total');
+        const submitBtn = document.getElementById('submit-btn');
+
+        if (orderItems.length === 0) {
+            summaryItems.innerHTML = '<p class="text-gray-500 text-center">Brak pozycji w zamówieniu</p>';
+            summaryTotal.textContent = '0 zł';
+            submitBtn.disabled = true;
+            return;
+        }
+
+        const total = orderItems.reduce((sum, item) => sum + item.total, 0);
+        summaryItems.innerHTML = orderItems.map(item => `
+            <div class="flex justify-between">
+                <span class="text-gray-600">${item.modelName} (${item.quantity})</span>
+                <span class="font-semibold">${item.total.toFixed(2)} zł</span>
+            </div>
+        `).join('');
+
+        summaryTotal.textContent = total.toFixed(2) + ' zł';
+        submitBtn.disabled = false;
+    }
+
+    function resetSelection() {
+        document.getElementById('model-standard').classList.remove('selected', 'border-primary');
+        document.getElementById('model-hotel').classList.remove('selected', 'border-primary');
+        currentModel = null;
+        currentFabricName = '—';
+        currentFabricPrice = 0;
+        document.getElementById('quantity').value = 1;
+
+        document.getElementById('step2').classList.add('opacity-50', 'pointer-events-none');
+        document.getElementById('step3').classList.add('opacity-50', 'pointer-events-none');
+        document.getElementById('fabric-grid').innerHTML = '';
+        document.getElementById('fabric-info').textContent = 'Najpierw wybierz model leżaka.';
+
+        updateAddButton();
+    }
+
+    // ========== SUBMIT ORDER ==========
+    function submitOrder() {
+        const name = document.getElementById('customer-name').value.trim();
+        const phone = document.getElementById('customer-phone').value.trim();
+        const street = document.getElementById('customer-street').value.trim();
+        const zip = document.getElementById('customer-zip').value.trim();
+        const city = document.getElementById('customer-city').value.trim();
+        const notes = document.getElementById('customer-notes').value.trim();
+
+        if (!name) { alert('Podaj imię i nazwisko!'); return; }
+        if (!phone) { alert('Podaj numer telefonu!'); return; }
+        if (!street || !zip || !city) { alert('Wypełnij wszystkie pola adresu!'); return; }
+        if (orderItems.length === 0) { alert('Dodaj przynajmniej jeden produkt do zamówienia!'); return; }
+
+        const submitBtn = document.getElementById('submit-btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '⏳ Wysyłanie...';
+        submitBtn.disabled = true;
+
+        const fullAddress = `${street}, ${zip} ${city}`;
+        const total = orderItems.reduce((sum, item) => sum + item.total, 0);
+
+        // Build order details text
+        const orderDetails = orderItems.map(item =>
+            `• ${item.modelName} | ${item.fabricName} | ${item.quantity} szt. × ${item.unitPrice} zł = ${item.total.toFixed(2)} zł`
+        ).join('\n');
+
+        const formData = new FormData();
+        formData.append('_subject', '🛒 Nowe zamówienie DETALICZNE - Akcesoria-Piotr');
+        formData.append('order_items', orderDetails);
+        formData.append('order_total', total.toFixed(2) + ' zł');
+        formData.append('name', name);
+        formData.append('phone', phone);
+        formData.append('address', fullAddress);
+        formData.append('notes', notes);
+        formData.append('payment', 'Za pobraniem');
+
+        fetch('https://formspree.io/f/xbdqyqgp', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                document.getElementById('success-modal').classList.add('active');
+            } else {
+                alert('Wystąpił błąd. Spróbuj ponownie.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('success-modal').classList.add('active');
+        });
+    }
+
+    // ========== INIT ==========
+    document.addEventListener('DOMContentLoaded', function() {
+        selectModel('standard', 129);
+    });
+</script>
+
+</body>
+</html>

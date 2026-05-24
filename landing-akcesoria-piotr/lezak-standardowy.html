@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leżak Standardowy | Akcesoria-Piotr</title>
+    <meta name="description" content="Leżak plażowy aluminiowy model standardowy. Lekki (2,8 kg), wytrzymały (120 kg), składany w 5 sekund. Idealny na plażę i do ogrodu.">
+    <meta name="keywords" content="leżak plażowy, leżak aluminiowy, leżak standardowy, leżak składany, akcesoria plażowe">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Leżak Standardowy - Akcesoria-Piotr">
+    <meta property="og:description" content="Lekki i wytrzymały leżak aluminiowy. Idealny na plażę, do ogrodu i na kemping.">
+    <meta property="og:image" content="https://akcesoria-piotr.pl/assets/model1.webp">
+    <meta property="og:url" content="https://akcesoria-piotr.pl/lezak-standardowy.html">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <link href="./assets/style.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        .gallery-thumb {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        .gallery-thumb:hover {
+            transform: scale(1.05);
+        }
+        .gallery-thumb.active {
+            border-color: #004e92;
+        }
+        .spec-item {
+            transition: all 0.3s ease;
+        }
+        .spec-item:hover {
+            background-color: #f0fdf4;
+            transform: translateX(5px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 78, 146, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 198, 255, 0.2) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .glow-yellow {
+            box-shadow: 0 0 30px rgba(250, 204, 21, 0.3);
+        }
+        .glow-blue {
+            box-shadow: 0 0 30px rgba(0, 78, 146, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-slate-50">
+
+<!-- ==================== HEADER ==================== -->
+<header class="bg-slate-900/95 backdrop-blur-md text-white py-4 shadow-xl sticky top-0 z-40 border-b border-slate-700/50">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl">🏖️</span>
+                <h1 class="text-xl font-bold">Akcesoria-Piotr</h1>
+            </a>
+        </div>
+        <a href="index.html" class="flex items-center gap-2 text-white hover:text-gray-200 transition text-sm font-semibold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Strona główna
+        </a>
+    </div>
+</header>
+
+<!-- ==================== HERO SECTION ==================== -->
+<section class="hero-gradient text-white py-20 md:py-28 relative">
+    <div class="hero-pattern"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-sm text-slate-400 mb-8">
+            <a href="index.html" class="hover:text-white transition">Strona główna</a>
+            <span>/</span>
+            <a href="index.html#lato" class="hover:text-white transition">Sezon Letni</a>
+            <span>/</span>
+            <span class="text-yellow-400">Leżak Standardowy</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Image -->
+            <div class="relative">
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-6 shadow-2xl glow-blue">
+                    <img id="main-image" src="assets/model1.webp" alt="Leżak Standardowy"
+                         class="w-full max-h-[500px] object-contain">
+                </div>
+                <span class="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-500 to-amber-500 text-slate-900 font-bold px-5 py-2 rounded-full shadow-lg text-sm">
+                    Bestseller
+                </span>
+            </div>
+
+            <!-- Content -->
+            <div>
+                <div class="inline-flex items-center gap-2 bg-yellow-500/20 backdrop-blur-sm text-yellow-400 text-sm font-semibold px-4 py-2 rounded-full mb-6 border border-yellow-500/30">
+                    <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+                    Sezon Letni
+                </div>
+
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    Leżak <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500">Standardowy</span>
+                </h1>
+
+                <p class="text-xl text-slate-300 mb-8 leading-relaxed">
+                    Lekki, aluminiowy leżak wypoczynkowy. Idealny na plażę, do ogrodu i na kemping.
+                </p>
+
+                <!-- Quick stats -->
+                <div class="grid grid-cols-3 gap-4 mb-10">
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center">
+                        <div class="text-3xl font-bold text-yellow-400">2,8 kg</div>
+                        <div class="text-xs text-slate-400 mt-1">Waga</div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center">
+                        <div class="text-3xl font-bold text-yellow-400">120 kg</div>
+                        <div class="text-xs text-slate-400 mt-1">Udźwig</div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center">
+                        <div class="text-3xl font-bold text-yellow-400">129 zł</div>
+                        <div class="text-xs text-slate-400 mt-1">Cena</div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="order.html" class="group flex-1 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-slate-900 font-bold py-4 px-8 rounded-xl text-center transition-all duration-300 shadow-lg hover:shadow-yellow-500/30 hover:shadow-xl hover:-translate-y-1">
+                        <span class="flex items-center justify-center gap-2">
+                            Zamów teraz
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                    </a>
+                    <a href="calculator.html" class="flex-1 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white font-semibold py-4 px-8 rounded-xl text-center transition-all duration-300">
+                        Kalkulator hurtowy →
+                    </a>
+                </div>
+
+                <!-- Additional link -->
+                <div class="mt-6 text-center">
+                    <a href="lezak-hotelowy.html" class="text-slate-400 hover:text-yellow-400 transition text-sm">
+                        Porównaj z modelem hotelowym →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DESCRIPTION ==================== -->
+<section class="py-20 bg-gradient-to-b from-slate-50 to-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block text-yellow-600 text-sm font-bold uppercase tracking-wider mb-3">Poznaj produkt</span>
+                <h2 class="text-4xl font-bold text-slate-900">Opis produktu</h2>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl shadow-slate-200/50 p-10 mb-10 border border-slate-100">
+                <div class="prose prose-lg max-w-none text-slate-700">
+                    <p class="text-lg leading-relaxed mb-6">
+                        <strong class="text-slate-900">Leżak Standardowy</strong> to flagowy produkt naszej firmy. Lekka konstrukcja aluminiowa
+                        sprawia, że jest idealnym towarzyszem letnich wypraw – na plażę, do ogrodu, na kemping czy na balkon.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-6">
+                        Podłokietniki wykonane z <strong class="text-slate-900">bukowego drewna</strong> dodają elegancji i zapewniają wygodę
+                        podczas wypoczynku. Pikowana tkanina dostępna jest w <strong class="text-slate-900">6 wzorach</strong>, dzięki czemu
+                        każdy znajdzie coś dla siebie.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Leżak składa się <strong class="text-slate-900">w zaledwie 5 sekund</strong>, co czyni go niezwykle praktycznym
+                        rozwiązaniem dla osób ceniących sobie wygodę i mobilność.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SPECIFICATIONS ==================== -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block text-blue-600 text-sm font-bold uppercase tracking-wider mb-3">Szczegóły</span>
+                <h2 class="text-4xl font-bold text-slate-900">Specyfikacja techniczna</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="spec-item bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl p-6 flex items-center gap-5 border border-slate-200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-2xl">⚖️</span>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-500 font-medium">Waga całkowita</div>
+                        <div class="text-2xl font-bold text-slate-900">2,8 kg</div>
+                    </div>
+                </div>
+
+                <div class="spec-item bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl p-6 flex items-center gap-5 border border-slate-200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-2xl">💪</span>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-500 font-medium">Maksymalne obciążenie</div>
+                        <div class="text-2xl font-bold text-slate-900">120 kg</div>
+                    </div>
+                </div>
+
+                <div class="spec-item bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl p-6 flex items-center gap-5 border border-slate-200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-2xl">📦</span>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-500 font-medium">Wymiary po złożeniu</div>
+                        <div class="text-2xl font-bold text-slate-900">95 × 65 × 8 cm</div>
+                    </div>
+                </div>
+
+                <div class="spec-item bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl p-6 flex items-center gap-5 border border-slate-200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-2xl">🪵</span>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-500 font-medium">Materiał ramy</div>
+                        <div class="text-2xl font-bold text-slate-900">Aluminium + podłokietniki bukowe</div>
+                    </div>
+                </div>
+
+                <div class="spec-item bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl p-6 flex items-center gap-5 border border-slate-200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-2xl">🧵</span>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-500 font-medium">Tkanina</div>
+                        <div class="text-2xl font-bold text-slate-900">Pikowana (6 wzorów)</div>
+                    </div>
+                </div>
+
+                <div class="spec-item bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl p-6 flex items-center gap-5 border border-slate-200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-2xl">⏱️</span>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-500 font-medium">Czas składania</div>
+                        <div class="text-2xl font-bold text-slate-900">5 sekund</div>
+                    </div>
+                </div>
+
+                <div class="spec-item bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl p-6 flex items-center gap-5 border border-slate-200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-2xl">🪑</span>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-500 font-medium">Funkcja</div>
+                        <div class="text-2xl font-bold text-slate-900">Pozycja siedząca + leżąca</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FABRICS GALLERY ==================== -->
+<section class="py-20 bg-gradient-to-b from-white to-slate-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block text-yellow-600 text-sm font-bold uppercase tracking-wider mb-3">Wybierz swój styl</span>
+                <h2 class="text-4xl font-bold text-slate-900">Dostępne wzory tkanin</h2>
+                <p class="text-slate-600 mt-3">Kliknij miniaturkę, aby zobaczyć powiększony wzór</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl shadow-slate-200/50 p-8 border border-slate-100">
+                <!-- Main preview -->
+                <div class="mb-8 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl p-8 flex items-center justify-center min-h-[320px]">
+                    <img id="fabric-main" src="assets/fab-p1.webp" alt="Wzór tkaniny"
+                         class="max-h-[280px] object-contain rounded-xl shadow-lg">
+                </div>
+
+                <!-- Thumbnails -->
+                <div class="grid grid-cols-6 gap-4" id="fabric-gallery">
+                    <div class="gallery-thumb active rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" onclick="selectFabric(1)">
+                        <img src="assets/fab-p1.webp" alt="Pikowana 1" class="w-full h-20 object-cover">
+                    </div>
+                    <div class="gallery-thumb rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" onclick="selectFabric(2)">
+                        <img src="assets/fab-p2.webp" alt="Pikowana 2" class="w-full h-20 object-cover">
+                    </div>
+                    <div class="gallery-thumb rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" onclick="selectFabric(3)">
+                        <img src="assets/fab-p3.webp" alt="Pikowana 3" class="w-full h-20 object-cover">
+                    </div>
+                    <div class="gallery-thumb rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" onclick="selectFabric(4)">
+                        <img src="assets/fab-p4.webp" alt="Pikowana 4" class="w-full h-20 object-cover">
+                    </div>
+                    <div class="gallery-thumb rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" onclick="selectFabric(5)">
+                        <img src="assets/fab-p5.webp" alt="Pikowana 5" class="w-full h-20 object-cover">
+                    </div>
+                    <div class="gallery-thumb rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow" onclick="selectFabric(6)">
+                        <img src="assets/fab-p6.webp" alt="Pikowana 6" class="w-full h-20 object-cover">
+                    </div>
+                </div>
+
+                <p id="fabric-name" class="text-center mt-6 text-lg font-semibold text-slate-700">Pikowana 1</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FEATURES ==================== -->
+<section class="py-20 text-white relative" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);">
+    <div class="absolute inset-0" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;); pointer-events: none;"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(circle at 30% 50%, rgba(0, 78, 146, 0.3) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 198, 255, 0.2) 0%, transparent 40%); pointer-events: none;"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block text-yellow-400 text-sm font-bold uppercase tracking-wider mb-3">Dlaczego my</span>
+                <h2 class="text-4xl font-bold text-white">Zalety produktu</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div class="text-4xl mb-4">🏖️</div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-2">Lekki i przenośny</h3>
+                    <p class="text-gray-300">Waży zaledwie 2,8 kg – bez problemu zabierzesz go na plażę, basen czy kemping.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-2">Szybkie składanie</h3>
+                    <p class="text-gray-300">Rozłożenie i złożenie w 5 sekund. Bez wysiłku i specjalnych umiejętności.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div class="text-4xl mb-4">🪵</div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-2">Drewniane podłokietniki</h3>
+                    <p class="text-gray-300">Bukowe podłokietniki dodają elegancji i zapewniają wygodę podczas wypoczynku.</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-2">6 wzorów do wyboru</h3>
+                    <p class="text-gray-300">Pikowana tkanina dostępna w 6 różnych wzorach – dopasuj do swojego stylu.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="py-20 text-white relative" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);">
+    <div class="absolute inset-0" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;); pointer-events: none;"></div>
+    <div class="absolute inset-0" style="background: radial-gradient(circle at 30% 50%, rgba(0, 78, 146, 0.3) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(0, 198, 255, 0.2) 0%, transparent 40%); pointer-events: none;"></div>
+
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Zamów Leżak Standardowy</h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto text-gray-300">
+            Cena od <span class="font-bold text-4xl text-yellow-400">129 zł</span> za sztukę.
+            Wysyłka za pobraniem lub odbiór osobisty.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="order.html" class="group bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-slate-900 font-bold py-5 px-12 rounded-2xl shadow-2xl transition-all duration-300 hover:shadow-yellow-500/40 hover:shadow-xl hover:-translate-y-2">
+                <span class="flex items-center justify-center gap-3 text-lg">
+                    Zamów teraz
+                    <svg class="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </span>
+            </a>
+            <a href="calculator.html" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold py-5 px-12 rounded-2xl transition-all duration-300">
+                Kalkulator hurtowy →
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800">
+    <div class="container mx-auto px-4 text-center">
+        <div class="flex flex-wrap justify-center gap-4 text-sm mb-4">
+            <a href="polityka-prywatnosci.html" class="text-gray-400 hover:text-yellow-400 transition">Polityka prywatności</a>
+            <span class="text-gray-600">|</span>
+            <a href="regulamin.html" class="text-gray-400 hover:text-yellow-400 transition">Regulamin</a>
+        </div>
+        <div class="flex items-center justify-center gap-2 mb-4">
+            <span class="text-2xl">🏖️</span>
+            <span class="text-xl font-bold text-white">Akcesoria-Piotr</span>
+        </div>
+        <p>ul. Zagórska 53, 42-125 Biała</p>
+        <p>kontakt@piotr.info | +48 784-995-708</p>
+        <p class="text-sm mt-4 opacity-70">© 2026 Akcesoria-Piotr. Wszelkie prawa zastrzeżone.</p>
+    </div>
+</footer>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+    const fabrics = [
+        { id: 1, name: 'Pikowana 1', img: 'assets/fab-p1.webp' },
+        { id: 2, name: 'Pikowana 2', img: 'assets/fab-p2.webp' },
+        { id: 3, name: 'Pikowana 3', img: 'assets/fab-p3.webp' },
+        { id: 4, name: 'Pikowana 4', img: 'assets/fab-p4.webp' },
+        { id: 5, name: 'Pikowana 5', img: 'assets/fab-p5.webp' },
+        { id: 6, name: 'Pikowana 6', img: 'assets/fab-p6.webp' }
+    ];
+
+    function selectFabric(index) {
+        const fabric = fabrics[index - 1];
+
+        document.getElementById('fabric-main').src = fabric.img;
+        document.getElementById('fabric-main').alt = fabric.name;
+        document.getElementById('fabric-name').textContent = fabric.name;
+
+        document.querySelectorAll('.gallery-thumb').forEach((thumb, i) => {
+            if (i === index - 1) {
+                thumb.classList.add('active');
+            } else {
+                thumb.classList.remove('active');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
